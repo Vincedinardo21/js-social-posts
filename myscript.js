@@ -13,18 +13,34 @@ posts.forEach((element) => {
     // Nome autore e time
     let authorName = document.createElement("div");
     authorName.append(element.author.name);
-    //let myPostMetaAuthor = document.createElement("div");
     let myPostMetaTime = document.createElement("div");
+    myPostMetaTime.append(element.created);
 
-    // Creo l'immagine
+    // Icona
     let myImg = document.createElement("img");
     myImg.src = element.media;
-   
+
+    // Testo
+   let myPostText = document.createElement("div");
+   myPostText.classList.add("post__text");
+   myPostText.append(element.content);
+
+    // Immagine
+    let myPostImage = document.createElement("div");
+    myPostImage.classList.add("post__image");
+    let myImgBig = document.createElement("img");
+    myImgBig.src = element.author.image;
+
     // Creo la concatenazione di div
     myPost.classList.add("post");
     myContainer.append(myPost);
     myPostHeader.classList.add("post__header");
+
     myPost.append(myPostHeader);
+    myPost.append(myPostText);
+    myPost.append(myPostImage);
+    myPostImage.append(myImgBig);
+
     myPostMeta.classList.add("post-meta");
     myPostHeader.append(myPostMeta);
     myPostMetaIcon.classList.add("post-meta__icon");
