@@ -7,6 +7,10 @@ posts.forEach((element) => {
     let myPostMeta = document.createElement("div");
     let myPostMetaIcon = document.createElement("div");
 
+    let myImg = document.createElement("img");
+    myImg.src = element.author.image;
+    
+
     myPost.classList.add("post");
     myContainer.append(myPost);
     myPostHeader.classList.add("post__header");
@@ -15,6 +19,7 @@ posts.forEach((element) => {
     myPostHeader.append(myPostMeta);
     myPostMetaIcon.classList.add("post-meta__icon");
     myPostMeta.append(myPostMetaIcon);
+    myPostMetaIcon.append(myImg);
 });
 
 
