@@ -87,11 +87,30 @@ posts.forEach((element) => {
                 </a>
             </div>
             <div class="likes__counter">
-                Piace a <b id="like-counter-1" class="js-likes-counter">${element.likes}</b> persone
+                Piace a <b id="like-counter-${element.id}" class="js-likes-counter">${element.likes}</b> persone
             </div>
         </div> 
     </div>            
 </div>`
 });
 
+// Like cliccando sul bottone
+let likeButton = document.querySelectorAll(".js-like-button");
+
+likeButton.forEach((button, index) => {
+    button.addEventListener("click", 
+    function(newelement){
+        newelement.preventDefault();
+        button.classList.toggle("like-button--liked");
+        if(button.classList.contains("like-button--liked")){
+            posts[index].likes++;
+        } else {
+            posts[index].likes--;
+        }
+        
+        let likeCount = document.getElementById("like-counter-" + posts[index].id);
+        likeCount.innerText = posts[index].likes;
+    }
+    );
+});
 
